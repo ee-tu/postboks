@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Postboks</title>
+        <style>
+            .page { display: none; }
+            .active { display: block; }
+        </style>
+    </head>
+    <body>
+        <!-- Eingang -->
+        <div id="in" class="page active">
+            <form id="formin">
+                <label for="lname">Name</label><br>
+                <input type="text" id="lname" name="lname"><br>
+
+                <label for="fname">Vorname</label><br>
+                <input type="text" id="fname" name="fname"><br>
+
+                <label for="numletter">Briefe</label><br>
+                <input type="number" id="numletter" name="numletter"><br>
+
+                <label for="numformal">Förml. Briefe</label><br>
+                <input type="number" id="numformal" name="numformal"><br>
+
+                <input type="submit" value=">">
+            </form>
+        </div>
+
+        <!-- Ausgang -->
+        <div id="out" class="page">
+            <h1>Postausgang</h1>
+        </div>
+
+        <!-- Archiv -->
+        <div id="archive" class="page">
+            <h1>Archiv</h1>
+        </div>
+
+        <!-- Einstellungen -->
+        <div id="conf" class="page">
+            <h1>Einstellungen</h1>
+        </div>
+
+
+        <footer>
+            <p>Postboks</p>
+            <button onclick="showPage('out')">Ausgang</button>
+            <button onclick="showPage('in')">Eingang</button>
+            <button onclick="showPage('archive')">Archiv</button>
+            <button onclick="showPage('conf')">⚙</button>
+        </footer>
+
+        <script>
+            function showPage(pageId) {
+                // Alle Seiten ausblenden
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                // Gewählte Seite einblenden
+                document.getElementById(pageId).classList.add('active');
+            }
+        </script>
+    </body>
+</html>
